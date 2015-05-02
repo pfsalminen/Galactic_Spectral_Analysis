@@ -1,0 +1,14 @@
+SELECT TOP 1000
+  plate, 
+  mjd,
+  fiberID,
+  z
+FROM SpecObj
+INTO mydb.snFiftyRandom
+WHERE 
+  sciencePrimary = 1
+  AND zwarning = 0
+  AND z > 0.0001
+  AND class = 'GALAXY'
+  AND snMedian > 50
+ORDER BY RAND()
